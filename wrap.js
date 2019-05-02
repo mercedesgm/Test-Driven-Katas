@@ -26,12 +26,16 @@ const wrap = (line, maxLen) => {
                 numOfLettersInLine++
             }
         } else {
-            if (letter.match(space) && numOfLettersInLine === maxLen - 1) {
-                newString += newLine
-                numOfLettersInLine = 0;
+            if (letter.match(space) && numOfLettersInLine === 0) {
+                continue
             } else {
-                newString += letter;
-                numOfLettersInLine++
+                if (letter.match(space) && numOfLettersInLine === maxLen - 1) {
+                    newString += newLine
+                    numOfLettersInLine = 0;
+                } else {
+                    newString += letter;
+                    numOfLettersInLine++
+                }
             }
         }
     }
